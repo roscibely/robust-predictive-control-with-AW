@@ -6,6 +6,9 @@ Abstract: This paper proposes a new technique to address the anti-windup (AW) wi
    
    📍[YALMIP](https://yalmip.github.io/)
    📍[SEDUMI](https://yalmip.github.io/solver/sedumi/) 
+   
+## How to run: 
+   run the [main file](https://github.com/roscibely/robust-predictive-control-with-AW/blob/main/main_conversor.m) 
 
 ## How to cite:
     @article{rego2020robust,
@@ -18,3 +21,5 @@ Abstract: This paper proposes a new technique to address the anti-windup (AW) wi
      year={2020},
      publisher={Inderscience Publishers (IEL)}
     }
+
+Rego, Rosana, and Marcus Costa. "[Robust control with an anti-windup technique based in relaxed LMI conditions for LTV system.](https://www.inderscienceonline.com/doi/abs/10.1504/IJMIC.2020.114785)" International Journal of Modelling, Identification and Control 35.4 (2020): 298-304.
