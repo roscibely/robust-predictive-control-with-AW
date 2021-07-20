@@ -1,4 +1,5 @@
 %  main file
+% Rego, Rosana, and Marcus Costa (2020)
 close all, clear all, clc
 Pot=[1000 380]; Vo=48; Vg=[36 26]; L=36e-6; Co=4400e-6; Rco=26.7e-3;
 Ts=1e-3; Ta=Ts;
