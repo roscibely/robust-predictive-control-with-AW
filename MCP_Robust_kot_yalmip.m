@@ -1,7 +1,7 @@
 function [gammas,Fs]=MCP_Robust_kot_yalmip(A,B,Qc,Rc,umax,xk)
 [m,n]=size(B{1});
 L=size(A,2);
-% inicializaÁ„o das LMIS
+% inicializa√ß√£o das LMIS
 gamma=sdpvar(1);
 Q=sdpvar(m,m,'symmetric');
 Y=sdpvar(n,m);
@@ -18,8 +18,6 @@ end
 LMIs=[LMIs, [1 x_k';x_k Q]>0];
 LMIs=[LMIs, [umax*umax*eye(n) Y;Y' Q]>0];
 
-
-
 % ops=sdpsettings('solver','sedumi','sedumi.eps',1e-5);
 % ops=sdpsettings('solver','lmilab');
 
@@ -30,10 +28,8 @@ ops.solver='sedumi';
 % ops.solver='sdpt3';
 % ops.solver='lmilab';
 
-
 ops.tol=1e-5;
-ops.verbose=1;  % Essa opÁ„o oculta os c·lculos realizados pelo solver
-
+ops.verbose=1;  % Essa op√ß√£o oculta os c√°lculos realizados pelo solver
 
 model = optimizer(LMIs, gamma,ops,x_k,{Y,Q,gamma});
 out=model{xk};
@@ -41,15 +37,4 @@ Ys=out{1};
 Qs=out{2};
 gammas=out{3};
 Fs=Ys*inv(Qs);
-
-% 
-% optimize([LMIs, x_k==xk],gamma,ops)
-% checkset(LMIs)
-% 
-% Ys=double(Y);
-% Gs=double(Q);
-% gammas=double(gamma);
-% 
-% 
-% Fs=Ys*inv(Gs);
 
